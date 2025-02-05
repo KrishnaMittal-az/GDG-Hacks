@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+  --cyberpunk-yellow: 255, 215, 0;
+  --neon-blue: 0, 123, 255;
+  --energy-red: 255, 59, 48;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 3%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 3%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 60 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 240 100% 50%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 60 100% 50%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Space Mono', monospace;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
+  }
+}
+
+.cyberpunk-glow {
+  text-shadow: 0 0 10px rgba(var(--cyberpunk-yellow), 0.7),
+               0 0 20px rgba(var(--cyberpunk-yellow), 0.5),
+               0 0 30px rgba(var(--cyberpunk-yellow), 0.3);
+}
+
+.cyberpunk-button {
+  @apply relative overflow-hidden px-8 py-3 bg-transparent border-2 border-[#FFD700] text-[#FFD700] font-bold uppercase tracking-wider transition-all duration-300;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.cyberpunk-button:hover {
+  @apply bg-[#FFD700] text-black;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+}
+
+.cyberpunk-button::before {
+  content: '';
+  @apply absolute top-0 left-0 w-full h-full bg-[#FFD700] transform -skew-x-12 -translate-x-full transition-transform duration-300;
+  z-index: -1;
+}
+
+.cyberpunk-button:hover::before {
+  @apply translate-x-0;
+}
+
+.cyberpunk-card {
+  @apply bg-black/50 backdrop-blur-lg border border-[#FFD700]/20 rounded-lg p-8 transition-all duration-300;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.cyberpunk-card:hover {
+  @apply border-[#FFD700]/40;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+}
+
+.cyberpunk-input {
+  @apply bg-black/50 border-2 border-[#FFD700]/20 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-[#FFD700]/60 transition-all duration-300;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-container {
+  @apply relative min-h-screen flex items-center justify-center overflow-hidden;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.7)),
+              url('https://images.unsplash.com/photo-1510906594845-bc082582c8cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2044&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.canvas-container {
+  @apply absolute top-0 left-0 w-full h-full;
+  z-index: 0;
+}
+
+.content-container {
+  @apply relative z-10 text-center;
+}
+
+.sponsor-card {
+  @apply transition-transform duration-300 hover:scale-105;
+}
+
+.sponsor-card img {
+  @apply opacity-60 hover:opacity-100 transition-opacity duration-300;
+}
